@@ -1,0 +1,5 @@
+main.go
+.idea/*
+cluster-info.yaml
+calico.swp/*
+test.sh
