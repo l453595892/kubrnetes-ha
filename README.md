@@ -10,8 +10,6 @@ CP2_IP=10.130.29.82
 VIP=10.130.29.83
 NET_IF=ens32
 CIDR=10.244.0.0/16
-
-$ bash -c "$(curl -fsSL https://k8s.lentil1016.cn)"
 ```
 
 ## Generate join command
