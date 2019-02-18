@@ -137,7 +137,7 @@ for index in ${!masterList[@]}; do
    echo "ignore master-0"
   else
    ip=${masterList[${index}]}
-   ssh ${ip} "mkdir -p /etc/kubernetes/pki/etcd; mkdir -p ~/.kube/;mkdir -p ~/data/"
+   ssh ${ip} "mkdir -p /etc/kubernetes/pki/etcd; mkdir -p ~/.kube/;"
    scp /etc/kubernetes/pki/ca.crt $ip:/etc/kubernetes/pki/ca.crt
    scp /etc/kubernetes/pki/ca.key $ip:/etc/kubernetes/pki/ca.key
    scp /etc/kubernetes/pki/sa.key $ip:/etc/kubernetes/pki/sa.key
@@ -148,9 +148,7 @@ for index in ${!masterList[@]}; do
    scp /etc/kubernetes/pki/etcd/ca.key $ip:/etc/kubernetes/pki/etcd/ca.key
    scp /etc/kubernetes/admin.conf $ip:/etc/kubernetes/admin.conf
    scp /etc/kubernetes/admin.conf $ip:~/.kube/config
-   scp k8s-offline-images.tar $ip:~/data/
 
-   ssh ${ip} "docker load -i ~/data/k8s-offline-images.tar"
    ssh ${ip} "${MASTER_JOIN} --experimental-control-plane"
   fi
 done
