@@ -123,7 +123,6 @@ openssl genrsa -out ca.key 2048
 openssl req -x509 -new -nodes -key ca.key -days 10000 -out ca.crt -subj "/CN=kubernetes/O=k8s"
 mv ca.key /etc/kubernetes/pki
 mv ca.crt /etc/kubernetes/pki
-docker load -i k8s-offline-images.tar
 kubeadm init --config /etc/kubernetes/kubeadm-config.yaml
 mkdir -p ${HOME}/.kube
 cp -f /etc/kubernetes/admin.conf ${HOME}/.kube/config
